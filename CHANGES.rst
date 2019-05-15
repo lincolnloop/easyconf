@@ -2,7 +2,7 @@
 Change Log
 ==========
 
-1.1 (unreleased)
+1.1 (2019-05-15)
 ================
 
 - Allow explicit disabling of automatic config generation.
