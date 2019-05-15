@@ -71,3 +71,7 @@ def test_initial_var():
 def test_cast(monkeypatch):
     monkeypatch.setenv("APPLES", "1")
     assert easyconf.Config().APPLES(cast=int) == 1
+
+
+def test_cast_default():
+    assert easyconf.Config().APPLES(default="1", cast=int) == 1

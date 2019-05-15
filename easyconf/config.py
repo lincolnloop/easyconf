@@ -80,7 +80,12 @@ class Config:
         if key in env:
             return env(key, default, cast)
 
-        value = self._config.get(key, default)
+        if key in self._config:
+            value = self._config[key]
+        else:
+            value = default
+            if cast:
+                value = cast(value)
 
         if value is REQUIRED:
             raise RequiredConfigVarMissing(key)
