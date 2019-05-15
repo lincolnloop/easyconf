@@ -126,3 +126,11 @@ FOURTH: four
 # LAST: end
 """
             )
+
+
+def test_disabled():
+    with tempfile.TemporaryDirectory() as temp_dir:
+        nonexistant = str(Path(temp_dir) / "example.yml")
+        config = easyconf.Config(nonexistant, generate=False)
+        assert config.APPLES(default=1) == 1
+        assert not os.path.exists(nonexistant)

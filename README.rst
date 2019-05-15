@@ -39,6 +39,9 @@ EasyConf will generate it using the ``initial`` values and commented
 Don't hide configuration variables within conditional statements, load them at
 the top of a module so they can be generated regardless.
 
+If you don't want file generation for non-existant configuration, use
+``generate=False`` when instantiating the ``Config`` object.
+
 
 Example Django configuration
 ============================
@@ -92,6 +95,10 @@ Configuration Variable options
 
     If provided and an environment variable matches, this overrides any
     ``default_files`` specified.
+
+``generate``
+    Whether to generate a new config file if none of the default_files can be
+    loaded. Defaults to ``True``.
 
 
 Helper Modules

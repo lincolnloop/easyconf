@@ -21,6 +21,7 @@ class Config:
         default_files: typing.Optional[typing.Union[str, typing.List[str]]] = None,
         *,
         file_env_var: typing.Optional[str] = None,
+        generate: bool = True,
     ):
         self._loaded = False
         self._creating = None
@@ -39,7 +40,7 @@ class Config:
                 self._load(filename)
                 break
         # No match? Try to open file for write.
-        if not self._loaded and default_files:
+        if not self._loaded and default_files and generate:
             logger.warning("No configuration files found, attempting to create one...")
             for filename in default_files:
                 try:

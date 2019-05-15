@@ -5,7 +5,7 @@ Change Log
 1.1 (unreleased)
 ================
 
-- Nothing changed yet.
+- Allow explicit disabling of automatic config generation.
 
 
 1.0 (2019-05-15)
