@@ -47,10 +47,7 @@ class Config:
                     logger.warning(f"Creating {filename} configuration file")
                 except OSError:
                     continue
-            if self._creating:
-                self._create_values = {}
-                self._create_help = {}
-            else:
+            if not self._creating:
                 logger.warning("Could not create a configuration file")
 
     def _load(self, filename: str):
