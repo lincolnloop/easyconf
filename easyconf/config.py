@@ -84,6 +84,8 @@ class Config:
 
         if key in self._config:
             value = self._config[key]
+            if cast and getattr(cast, "cast_from_config", False):
+                value = cast(value)
         else:
             value = default
             if cast:

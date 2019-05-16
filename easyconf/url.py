@@ -27,3 +27,6 @@ def dict_or_url(url):
     if isinstance(url, dict):
         return url
     return url_to_dict(url)
+
+
+dict_or_url.cast_from_config = True

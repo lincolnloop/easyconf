@@ -75,3 +75,13 @@ def test_cast(monkeypatch):
 
 def test_cast_default():
     assert easyconf.Config().APPLES(default="1", cast=int) == 1
+
+
+def test_cast_from_conf_file():
+    def to_string(x):
+        return str(x)
+
+    to_string.cast_from_config = True
+
+    assert easyconf.Config(EXAMPLE_CONF).BANANAS(cast=to_string) == "1"
+    assert easyconf.Config(EXAMPLE_CONF).BANANAS(cast=str) == 1

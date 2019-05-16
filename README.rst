@@ -75,8 +75,11 @@ Configuration Variable options
     Help text to use in the configuration file for this variable.
 
 ``cast``
-    A callable to convert an incoming value (from the environment or
-    configuration file) to the correct Python type.
+    A callable to convert an incoming value (from the environment or default
+    value) to the correct Python type.
+
+    Set the ``cast_from_config`` attribute of this callable to ``True`` if it
+    is safe to cast from the configuration file as well.
 
 
 ``Config`` Object options
@@ -116,6 +119,9 @@ Expand url strings defined in django-environ_ into dictionaries. For example:
     {'NAME': 'abc', 'USER': '', 'PASSWORD': '', 'HOST': '', 'PORT': '', 'ENGINE': 'django.db.backends.mysql'}
 
 .. _django-environ: https://pypi.org/project/django-environ/
+
+This will also cast url strings coming from the configuration file.
+
 
 ``easyconf.random_text_generator``
 ----------------------------------

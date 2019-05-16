@@ -2,10 +2,12 @@
 Change Log
 ==========
 
-1.1.2 (unreleased)
-==================
+1.2 (unreleased)
+================
 
-- Nothing changed yet.
+- If a cast callable has a ``cast_from_config`` attribute set to ``True``, cast
+  values coming from the configuration file. This is set to ``True`` for the
+  ``dict_or_url`` helper method.
 
 
 1.1.1 (2019-05-16)
