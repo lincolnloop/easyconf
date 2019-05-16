@@ -108,6 +108,7 @@ def test_multiple():
         assert config.SECOND(initial="2", help="Second") == "2"
         assert config.THIRD(default="3", help="third") == "3"
         assert config.FOURTH(initial=lambda: "four") == "four"
+        assert config.FIFTH(default="5") == "5"
         assert config.LAST(default="end") == "end"
         with open(path) as f:
             assert (
@@ -122,6 +123,8 @@ SECOND: '2'
 # THIRD: '3'
 
 FOURTH: four
+
+# FIFTH: '5'
 
 # LAST: end
 """

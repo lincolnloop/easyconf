@@ -62,7 +62,9 @@ class YAMLGenerator:
             self.yaml_data.ca.comment[1] = yaml_comments(comment)
             self.first_comments = comment
         else:
-            self.yaml_data.ca.end = yaml_comments(f"\n{comment}", stream_mark=True)
+            self.yaml_data.ca.end.extend(
+                yaml_comments(f"\n{comment}", stream_mark=True)
+            )
 
         self.save()
 
