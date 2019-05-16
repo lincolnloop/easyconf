@@ -2,8 +2,8 @@
 Change Log
 ==========
 
-1.2 (unreleased)
-================
+1.1.1 (2019-05-16)
+==================
 
 - Fix issue with generating multiple comments (for multiple default values) at
   the end of the YAML config.
