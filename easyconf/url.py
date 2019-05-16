@@ -4,10 +4,10 @@ from urllib.parse import urlparse
 
 scheme_map = {}
 for attr, method in [
-    ('DB_SCHEMES', 'db_url_config'),
-    ('CACHE_SCHEMES', 'cache_url_config'),
-    ('EMAIL_SCHEMES', 'email_url_config'),
-    ('SEARCH_SCHEMES', 'search_url_config'),
+    ("DB_SCHEMES", "db_url_config"),
+    ("CACHE_SCHEMES", "cache_url_config"),
+    ("EMAIL_SCHEMES", "email_url_config"),
+    ("SEARCH_SCHEMES", "search_url_config"),
 ]:
     method = getattr(Env, method)
     for scheme in getattr(Env, attr):
@@ -15,8 +15,8 @@ for attr, method in [
 
 
 def url_to_dict(url):
-    if url == 'sqlite://:memory:':
-        url = url.replace(':memory:', '')
+    if url == "sqlite://:memory:":
+        url = url.replace(":memory:", "")
     url = urlparse(url)
     if url.scheme not in scheme_map:
         raise RuntimeError(f"Unknown url scheme: {url.scheme}")
