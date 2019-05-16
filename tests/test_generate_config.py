@@ -137,3 +137,21 @@ def test_disabled():
         config = easyconf.Config(nonexistant, generate=False)
         assert config.APPLES(default=1) == 1
         assert not os.path.exists(nonexistant)
+
+
+def test_cast():
+    with tempfile.TemporaryDirectory() as temp_dir:
+        path = str(Path(temp_dir) / "example.yml")
+        config = easyconf.Config(path)
+        assert config.CASTED(default="1", cast=lambda x: {"inner": int(x)}) == {
+            "inner": 1
+        }
+        with open(path) as f:
+            assert (
+                f.read()
+                == """\
+# CASTED:
+#   inner: 1
+{}
+"""
+            )

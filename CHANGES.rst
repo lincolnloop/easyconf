@@ -8,6 +8,8 @@ Change Log
 - Fix issue with generating multiple comments (for multiple default values) at
   the end of the YAML config.
 
+- Cast default values when writing to config.
+
 
 1.1 (2019-05-15)
 ================

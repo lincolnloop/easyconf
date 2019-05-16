@@ -69,6 +69,8 @@ class Config:
     ):
         if self._creating and key not in self._config:
             if initial is None:
+                if cast:
+                    default = cast(default)
                 self._creating.add_commented(key, default, help)
                 self._config[key] = default
             else:
