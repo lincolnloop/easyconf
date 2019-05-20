@@ -5,6 +5,9 @@ Change Log
 1.2 (unreleased)
 ================
 
+- When generating a config that is within a git repository, add it to
+  ``.gitignore``.
+
 - If a cast callable has a ``cast_from_config`` attribute set to ``True``, cast
   values coming from the configuration file. This is set to ``True`` for the
   ``dict_or_url`` helper method.

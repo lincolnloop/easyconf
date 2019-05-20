@@ -4,6 +4,7 @@ import os
 import typing
 
 from .constants import REQUIRED, CastTypes
+from .generators.gitignore import update_gitignore
 from .generators.yaml import YAMLGenerator
 from .loader import env, load_config
 
@@ -46,6 +47,7 @@ class Config:
                 try:
                     self._creating = YAMLGenerator(filename)
                     logger.warning(f"Creating {filename} configuration file")
+                    update_gitignore(filename)
                 except OSError:
                     continue
             if not self._creating:

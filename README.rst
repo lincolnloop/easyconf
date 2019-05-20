@@ -36,6 +36,9 @@ If the ``Config`` file doesn't exist yet and the file location is writable,
 EasyConf will generate it using the ``initial`` values and commented
 ``default`` values defined in each configuration variable.
 
+If the configuration file is within a git repository it will also be added to
+the ``.gitignore`` file.
+
 Don't hide configuration variables within conditional statements, load them at
 the top of a module so they can be generated regardless.
 
