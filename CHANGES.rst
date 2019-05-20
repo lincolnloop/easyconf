@@ -2,7 +2,7 @@
 Change Log
 ==========
 
-1.2 (unreleased)
+1.2 (2019-05-21)
 ================
 
 - When generating a config that is within a git repository, add it to
