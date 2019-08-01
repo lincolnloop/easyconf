@@ -2,7 +2,7 @@
 Change Log
 ==========
 
-1.2.1 (unreleased)
+1.2.1 (2019-08-01)
 ==================
 
 - Avoid new version of ``ruamel.yaml`` which changed loading format.
