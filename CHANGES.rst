@@ -5,7 +5,7 @@ Change Log
 1.3 (unreleased)
 ================
 
-- Nothing changed yet.
+- Correctly lock down ``ruamel.yaml`` this time (it's v0.16, not v16).
 
 
 1.2.1 (2019-08-01)
