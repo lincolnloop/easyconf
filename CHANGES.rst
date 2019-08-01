@@ -2,8 +2,8 @@
 Change Log
 ==========
 
-1.3 (unreleased)
-================
+1.2.2 (2019-08-02)
+==================
 
 - Correctly lock down ``ruamel.yaml`` this time (it's v0.16, not v16).
 
