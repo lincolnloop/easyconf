@@ -2,7 +2,7 @@
 Change Log
 ==========
 
-1.3 (unreleased)
+1.3 (2019-08-02)
 ================
 
 - Use environment values for automatic configuration generation.
