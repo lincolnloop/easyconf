@@ -5,7 +5,7 @@ Change Log
 1.3 (unreleased)
 ================
 
-- Nothing changed yet.
+- Use environment values for automatic configuration generation.
 
 
 1.2.2 (2019-08-02)

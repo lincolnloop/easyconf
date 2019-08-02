@@ -69,8 +69,18 @@ class Config:
         initial: typing.Optional[typing.Callable[[], CastTypes]] = None,
         help: typing.Optional[str] = None,
     ):
+        if key in env:
+            value = env(key, default, cast)
+
         if self._creating and key not in self._config:
-            if initial is None:
+            if key in env:
+                env_help_text = "Set to initial environment variable value"
+                if help:
+                    help = f"{help}\n({env_help_text.lower()})"
+                else:
+                    help = env_help_text
+                self._creating.add(key, value, help)
+            elif initial is None:
                 if cast:
                     default = cast(default)
                 self._creating.add_commented(key, default, help)
@@ -82,7 +92,7 @@ class Config:
                 self._config[key] = initial
 
         if key in env:
-            return env(key, default, cast)
+            return value
 
         if key in self._config:
             value = self._config[key]

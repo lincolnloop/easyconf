@@ -155,3 +155,25 @@ def test_cast():
 {}
 """
             )
+
+
+def test_environment(monkeypatch):
+    monkeypatch.setenv("AGE", "21")
+    monkeypatch.setenv("HEIGHT", "160")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        path = str(Path(temp_dir) / "example.yml")
+        config = easyconf.Config(path)
+        assert config.AGE(default=35) == 21
+        assert config.HEIGHT(default=150, help="Height in CMs") == 160
+        with open(path) as f:
+            assert (
+                f.read()
+                == """\
+# Set to initial environment variable value
+AGE: 21
+
+# Height in CMs
+# (set to initial environment variable value)
+HEIGHT: 160
+"""
+            )
