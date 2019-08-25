@@ -1,3 +1,4 @@
+import sys
 import tempfile
 from pathlib import Path
 
@@ -16,6 +17,23 @@ def test_git(mocker):
         path = Path(temp_dir)
         easyconf.Config(str(path / "example.yml"))
         assert (path / ".gitignore").exists()
+
+
+def test_no_git_executable(mocker):
+    import easyconf.generators.gitignore
+
+    try:
+        original_git = easyconf.generators.gitignore.git
+        easyconf.generators.gitignore.git = None
+
+        mocked_inspect = mocker.patch("easyconf.generators.gitignore.inspect")
+        with tempfile.TemporaryDirectory() as temp_dir:
+            git.Repo.init(temp_dir)
+            path = Path(temp_dir)
+            easyconf.Config(str(path / "example.yml"))
+            assert not mocked_inspect.called
+    finally:
+        easyconf.generators.gitignore.git = original_git
 
 
 def test_no_git(mocker):

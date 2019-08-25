@@ -5,7 +5,7 @@ Change Log
 1.4 (unreleased)
 ================
 
-- Nothing changed yet.
+- Don't require git executable to be installed.
 
 
 1.3 (2019-08-02)

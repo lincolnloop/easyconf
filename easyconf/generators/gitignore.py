@@ -1,10 +1,15 @@
 import inspect
 from pathlib import Path
 
-import git
+try:
+    import git
+except ImportError:  # pragma: no cover
+    git = None
 
 
 def update_gitignore(path: str, frames: int = 2) -> None:
+    if git is None:
+        return
     parent_frame = inspect.currentframe()
     for i in range(frames):
         parent_frame = parent_frame.f_back
